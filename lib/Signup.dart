@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'Profile.dart';
 import 'button.dart';
-import 'package:google_sign_in/google_sign_in.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+
 
 class SignUp extends StatefulWidget {
    SignUp({super.key});
   List<AssetImage> images=[
-    AssetImage('asset/images/icons/google-icon.svg'),
-    AssetImage('asset/images/icons/facebook-2.svg'),
-    AssetImage('asset/images/icons/twitter.svg'),
+    AssetImage('asset/google-icon.svg'),
+    AssetImage('asset/facebook-2.svg'),
+    AssetImage('asset/twitter.svg'),
   ];
   @override
   State<SignUp> createState() => _SignUpState();
@@ -46,7 +47,7 @@ class _SignUpState extends State<SignUp> {
                   ),
                   //email
                   SizedBox(height: 40.0),
-                  Text('Email',style: TextStyle(color: Colors.grey),),
+                  Text('Email',style: TextStyle(color: Colors.grey),textAlign: TextAlign.left,),
                   Center(
                     child: Container(
                       padding: const EdgeInsets.all(10),
@@ -133,11 +134,11 @@ class _SignUpState extends State<SignUp> {
                   Center(
                     child: Row( mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        IconButton(onPressed: (){}, icon: Image.asset('asset/images/icons/google-icon.svg'),),
+                        IconButton(onPressed: (){}, icon: SvgPicture.asset('asset/google-icon.svg'),),
                         SizedBox(height: 10.0),
-                        IconButton(onPressed: (){}, icon: Image.asset('asset/images/icons/facebook-2.svg'),),
+                        IconButton(onPressed: (){}, icon: SvgPicture.asset('asset/facebook-2.svg'),),
                         SizedBox(height: 10.0),
-                        IconButton(onPressed: (){}, icon: Image.asset('asset/images/icons/twitter.svg'),),
+                        IconButton(onPressed: (){}, icon: SvgPicture.asset('asset/twitter.svg'),),
                         SizedBox(height: 10.0),
                       ],
                     ),

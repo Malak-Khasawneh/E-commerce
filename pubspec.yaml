@@ -39,6 +39,7 @@ dependencies:
   carousel_slider: ^4.2.1
   otp_text_field: ^1.1.0
   google_sign_in: ^6.1.6
+  flutter_svg: ^2.0.5
 
 
 dev_dependencies:
@@ -70,6 +71,9 @@ flutter:
     - asset/splash_3.png
     - asset/images/
     - asset/images/icons/
+    - asset/facebook-2.svg
+    - asset/google-icon.svg
+    - asset/twitter.svg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
