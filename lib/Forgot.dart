@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'Profile.dart';
-import 'button.dart';
+import 'model/button.dart';
 
 class Forgot extends StatefulWidget {
   const Forgot({super.key});
@@ -14,8 +14,8 @@ class _ForgotState extends State<Forgot> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,leading: IconButton( iconSize:30, icon: const Icon(Icons.arrow_back, color: Colors.black) ,
+      appBar: AppBar(elevation:0,
+        backgroundColor: Color(0xffFFFBFE),leading: IconButton( iconSize:30, icon: const Icon(Icons.arrow_back, color: Colors.black) ,
         onPressed: (){
           Navigator.pop(context);
         },

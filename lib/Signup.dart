@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'Profile.dart';
-import 'button.dart';
+import 'model/button.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 
@@ -19,16 +19,21 @@ class _SignUpState extends State<SignUp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(backgroundColor: Colors.white,leading: IconButton( iconSize:30, icon: const Icon(Icons.arrow_back, color: Colors.black) ,
+      appBar: AppBar(elevation:0,
+        backgroundColor: Color(0xffFFFBFE),leading: IconButton( iconSize:30, icon: const Icon(Icons.arrow_back, color: Colors.black) ,
         onPressed: (){
           Navigator.pop(context);
         },
       ),
       ),
+
+
       body:SafeArea(child:Padding(
     padding: EdgeInsets.symmetric(
         horizontal: 10) ,
             child: Column(
+
+              crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(height: 60.0),
                   Center(
@@ -47,15 +52,15 @@ class _SignUpState extends State<SignUp> {
                   ),
                   //email
                   SizedBox(height: 40.0),
-                  Text('Email',style: TextStyle(color: Colors.grey),textAlign: TextAlign.left,),
+
                   Center(
                     child: Container(
                       padding: const EdgeInsets.all(10),
                       child: TextField(
                         controller:TextEditingController(),
-                        decoration: InputDecoration(
+                        decoration: InputDecoration(labelText:'Email' ,floatingLabelBehavior: FloatingLabelBehavior.always,
                           border: OutlineInputBorder(),
-                          labelText: 'Enter your email',
+                          hintText: 'Enter your email',
                           suffixIcon: Icon(Icons.mail_outline, color: Colors.grey,
                           ),
                           enabledBorder: OutlineInputBorder(
@@ -69,16 +74,14 @@ class _SignUpState extends State<SignUp> {
 
                   //password
                   SizedBox(height: 5.0),
-                  Text('Password',style: TextStyle(color: Colors.grey),textAlign:TextAlign.left
-                  ),
                   Center(
                     child: Container(
                       padding: const EdgeInsets.all(10),
                       child: TextField(
                         controller:TextEditingController(),
-                        decoration: InputDecoration(
+                        decoration: InputDecoration(labelText:'Password',floatingLabelBehavior: FloatingLabelBehavior.always,
                             border: OutlineInputBorder(),
-                            labelText: 'Enter your password',
+                            hintText: 'Enter your password',
                             suffixIcon: Icon(Icons.lock, color: Colors.grey,
                             ),
                             enabledBorder: OutlineInputBorder(
@@ -92,15 +95,14 @@ class _SignUpState extends State<SignUp> {
 
                   //confirm password
                   SizedBox(height: 5.0),
-                  Text('Confirm Password',style: TextStyle(color: Colors.grey),textAlign: TextAlign.left,),
                   Center(
                     child: Container(
                       padding: const EdgeInsets.all(10),
                       child: TextField(
                         controller:TextEditingController(),
-                        decoration: InputDecoration(
+                        decoration: InputDecoration(labelText:'Confirm password',floatingLabelBehavior: FloatingLabelBehavior.always,
                             border: OutlineInputBorder(),
-                            labelText: 'Re-enter your password',
+                            hintText: 'Re-enter your password',
                             suffixIcon: Icon(Icons.lock, color: Colors.grey,
                             ),
                             enabledBorder: OutlineInputBorder(

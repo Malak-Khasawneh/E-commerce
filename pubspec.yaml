@@ -40,6 +40,7 @@ dependencies:
   otp_text_field: ^1.1.0
   google_sign_in: ^6.1.6
   flutter_svg: ^2.0.5
+  persistent_bottom_nav_bar: ^5.0.2
 
 
 dev_dependencies:
@@ -74,6 +75,15 @@ flutter:
     - asset/facebook-2.svg
     - asset/google-icon.svg
     - asset/twitter.svg
+    - asset/Image Banner 2.png
+    - asset/Image Banner 3.png
+    - asset/Image Popular Product 1.png
+    - asset/Image Popular Product 2.png
+    - asset/Image Popular Product 3.png
+    - asset/Heart Icon.svg
+    - asset/Shop Icon.svg
+    - asset/User Icon.svg
+    - asset/Chat bubble Icon.svg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

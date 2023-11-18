@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:otp_text_field/otp_field.dart';
 import 'package:otp_text_field/style.dart';
-import 'button.dart';
+import 'package:untitled1/Welcome.dart';
+import 'model/button.dart';
 
 class OTP extends StatefulWidget {
   const OTP({super.key});
@@ -14,7 +15,9 @@ class _OTPState extends State<OTP> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(backgroundColor: Colors.white,leading: IconButton( iconSize:30, icon: const Icon(Icons.arrow_back, color: Colors.black) ,
+      appBar: AppBar(
+        elevation:0,
+        backgroundColor: Color(0xffFFFBFE),leading: IconButton( iconSize:30, icon: const Icon(Icons.arrow_back, color: Colors.black) ,
         onPressed: (){
           Navigator.pop(context);
         },
@@ -59,7 +62,11 @@ class _OTPState extends State<OTP> {
       SizedBox(height:100.0),
       ElevatedButton(
         style: buttonPrimary,
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) =>  Welcome()));
+        },
         child: Text(
           'Continue', style: TextStyle(color: Colors.white),
         ),

@@ -2,12 +2,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:untitled1/Welcome.dart';
-import 'package:untitled1/widget/onboard.dart';
-
+import 'package:untitled1/model/onboard.dart';
 import 'Signup.dart';
-import 'button.dart';
+import 'model/button.dart';
 
-class Home extends StatelessWidget {
+class OnBoarding extends StatelessWidget {
   List<AssetImage> images=[
     AssetImage('asset/splash_1.png'),
     AssetImage('asset/splash_2.png'),
@@ -45,18 +44,6 @@ class Home extends StatelessWidget {
               },
               child: Text(
                 'Continue', style: TextStyle(color: Colors.white),
-              ),
-            ),
-            SizedBox(height: 20.0,),
-            ElevatedButton(
-              style: buttonPrimary,
-              onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) =>  Welcome()));
-              },
-              child: Text(
-                'Welcome', style: TextStyle(color: Colors.white),
               ),
             ),
 

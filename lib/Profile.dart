@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'OTP.dart';
-import 'button.dart';
+import 'model/button.dart';
 
 class Profile extends StatelessWidget {
   const Profile({super.key});
@@ -9,7 +9,9 @@ class Profile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(backgroundColor: Colors.white,leading: IconButton( iconSize:30, icon: const Icon(Icons.arrow_back, color: Colors.black) ,
+      appBar: AppBar(
+        elevation:0,
+        backgroundColor: Color(0xffFFFBFE),leading: IconButton( iconSize:30, icon: const Icon(Icons.arrow_back, color: Colors.black) ,
         onPressed: (){
           Navigator.pop(context);
         },
@@ -20,26 +22,31 @@ class Profile extends StatelessWidget {
         horizontal: 10),
         child:  Center(
       child: Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(height: 60.0),
-          Text('Complete profile', style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 30.0,
-          ),textAlign: TextAlign.center,
+          Center(
+            child: Text('Complete profile', style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 30.0,
+            ),textAlign: TextAlign.center,
+            ),
           ),
           SizedBox(height: 5.0),
-          Text('Complete your details or continue ',style: TextStyle(color: Colors.grey, fontSize: 10.0),textAlign: TextAlign.center,
+          Center(
+            child: Text('Complete your details or continue ',style: TextStyle(color: Colors.grey, fontSize: 10.0),textAlign: TextAlign.center,
+            ),
           ),
-          Text('with social media',style: TextStyle(color: Colors.grey, fontSize: 10.0),textAlign: TextAlign.center,
+          Center(
+            child: Text('with social media',style: TextStyle(color: Colors.grey, fontSize: 10.0),textAlign: TextAlign.center,
+            ),
           ),
           SizedBox(height: 40.0),
-          Text('First Name',style: TextStyle(color: Colors.grey),),
           Container( //email
             padding: const EdgeInsets.all(10),
             child: TextField(
               controller:TextEditingController(),
-              decoration: InputDecoration(
+              decoration: InputDecoration(labelText: 'First name',floatingLabelBehavior: FloatingLabelBehavior.always,
                   border: OutlineInputBorder(),
-                  labelText: 'Enter your first name',
+                  hintText: 'Enter your first name',
                   suffixIcon: Icon(Icons.account_circle_outlined, color: Colors.grey,
                   ),
                   enabledBorder: OutlineInputBorder(
@@ -51,14 +58,13 @@ class Profile extends StatelessWidget {
           ),
 
           SizedBox(height: 5.0),
-          Text('Last Name',style: TextStyle(color: Colors.grey),),
           Container( //email
             padding: const EdgeInsets.all(10),
             child: TextField(
               controller:TextEditingController(),
-              decoration: InputDecoration(
+              decoration: InputDecoration(labelText: 'Last name',floatingLabelBehavior: FloatingLabelBehavior.always,
                   border: OutlineInputBorder(),
-                  labelText: 'Enter your last name',
+                  hintText: 'Enter your last name',
                   suffixIcon: Icon(Icons.account_circle_outlined, color: Colors.grey,
                   ),
                   enabledBorder: OutlineInputBorder(
@@ -70,14 +76,13 @@ class Profile extends StatelessWidget {
           ),
 
           SizedBox(height: 5.0),
-          Text('Phone Number',style: TextStyle(color: Colors.grey),),
           Container(//password
             padding: const EdgeInsets.all(10),
             child: TextField(
               controller:TextEditingController(),
-              decoration: InputDecoration(
+              decoration: InputDecoration(labelText: 'Phone Number',floatingLabelBehavior: FloatingLabelBehavior.always,
                   border: OutlineInputBorder(),
-                  labelText: 'Enter your phone number',
+                  hintText: 'Enter your phone number',
                   suffixIcon: Icon(Icons.phone_android_sharp, color: Colors.grey,
                   ),
                   enabledBorder: OutlineInputBorder(
@@ -89,14 +94,13 @@ class Profile extends StatelessWidget {
           ),
 
           SizedBox(height: 5.0),
-          Text('Address',style: TextStyle(color: Colors.grey),),
           Container(//confirm password
             padding: const EdgeInsets.all(10),
             child: TextField(
               controller:TextEditingController(),
-              decoration: InputDecoration(
+              decoration: InputDecoration(labelText: 'Address',floatingLabelBehavior: FloatingLabelBehavior.always,
                   border: OutlineInputBorder(),
-                  labelText: 'Enter your phone address',
+                  hintText: 'Enter your phone address',
                   suffixIcon: Icon(Icons.location_on_outlined, color: Colors.grey,
                   ),
                   enabledBorder: OutlineInputBorder(
@@ -110,22 +114,28 @@ class Profile extends StatelessWidget {
 
           //Continue Button
           SizedBox(height: 50.0),
-          ElevatedButton(
-            style: buttonPrimary,
-            onPressed: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) =>  OTP()));
-            },
-            child: Text(
-              'Continue', style: TextStyle(color: Colors.white),
+          Center(
+            child: ElevatedButton(
+              style: buttonPrimary,
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) =>  OTP()));
+              },
+              child: Text(
+                'Continue', style: TextStyle(color: Colors.white),
+              ),
             ),
           ),
 
           SizedBox(height: 30.0),
-          Text('by continuing you confirm that you agree', style: TextStyle(color: Colors.grey, fontSize: 10.0,),
+          Center(
+            child: Text('by continuing you confirm that you agree', style: TextStyle(color: Colors.grey, fontSize: 10.0,),
+            ),
           ),
-          Text(' with our terms and conditions', style: TextStyle(color: Colors.grey, fontSize: 10.0,),
+          Center(
+            child: Text(' with our terms and conditions', style: TextStyle(color: Colors.grey, fontSize: 10.0,),
+            ),
           ),
         ],
       ),

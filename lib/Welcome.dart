@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+//import 'package:untitled1/HomeScreen.dart';
 import 'Forgot.dart';
-import 'Profile.dart';
-import 'button.dart';
+import 'HomeScreen.dart';
+import 'model/button.dart';
 
 class Welcome extends StatefulWidget {
   Welcome({super.key});
@@ -10,15 +12,19 @@ class Welcome extends StatefulWidget {
     AssetImage('asset/images/icons/facebook-2.svg'),
     AssetImage('asset/images/icons/twitter.svg'),
   ];
+
   @override
   State<Welcome> createState() => _SignUpState();
 }
 
 class _SignUpState extends State<Welcome> {
+  bool _isChecked = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(backgroundColor: Colors.white,leading: IconButton( iconSize:30, icon: const Icon(Icons.arrow_back, color: Colors.black) ,
+        appBar: AppBar(
+          elevation:0,
+          backgroundColor: Color(0xffFFFBFE),leading: IconButton( iconSize:30, icon: const Icon(Icons.arrow_back, color: Colors.black) ,
           onPressed: (){
             Navigator.pop(context);
           },
@@ -28,6 +34,7 @@ class _SignUpState extends State<Welcome> {
           padding: EdgeInsets.symmetric(
               horizontal: 10) ,
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(height: 60.0),
               Center(
@@ -46,15 +53,15 @@ class _SignUpState extends State<Welcome> {
               ),
               //email
               SizedBox(height: 40.0),
-              Text('Email',style: TextStyle(color: Colors.grey),),
+
               Center(
                 child: Container(
                   padding: const EdgeInsets.all(10),
                   child: TextField(
                     controller:TextEditingController(),
-                    decoration: InputDecoration(
+                    decoration: InputDecoration(labelText: 'Email',floatingLabelBehavior: FloatingLabelBehavior.always,
                         border: OutlineInputBorder(),
-                        labelText: 'Enter your email',
+                        hintText: 'Enter your email',
                         suffixIcon: Icon(Icons.mail_outline, color: Colors.grey,
                         ),
                         enabledBorder: OutlineInputBorder(
@@ -68,16 +75,14 @@ class _SignUpState extends State<Welcome> {
 
               //password
               SizedBox(height: 5.0),
-              Text('Password',style: TextStyle(color: Colors.grey),textAlign:TextAlign.left
-              ),
               Center(
                 child: Container(
                   padding: const EdgeInsets.all(10),
                   child: TextField(
                     controller:TextEditingController(),
-                    decoration: InputDecoration(
+                    decoration: InputDecoration(labelText: 'Password',floatingLabelBehavior: FloatingLabelBehavior.always,
                         border: OutlineInputBorder(),
-                        labelText: 'Enter your password',
+                        hintText: 'Enter your password',
                         suffixIcon: Icon(Icons.lock, color: Colors.grey,
                         ),
                         enabledBorder: OutlineInputBorder(
@@ -96,6 +101,9 @@ class _SignUpState extends State<Welcome> {
                 child: ElevatedButton(
                   style: buttonPrimary,
                   onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) =>  HomeScreen()));
                   },
                   child: Text(
                     'Continue', style: TextStyle(color: Colors.white),
@@ -104,7 +112,14 @@ class _SignUpState extends State<Welcome> {
               ),
               Row(
                 children: [
-                  IconButton(onPressed: (){}, icon: Icon(Icons.check_box_outline_blank),),
+                  Checkbox(value:_isChecked, onChanged: (value){
+                  setState((){
+                    _isChecked=value!;
+                  });
+                  },
+                  checkColor: Colors.deepOrangeAccent,),
+
+
                   Text('Remember me', style: TextStyle(color: Colors.grey),textAlign: TextAlign.left),
                   SizedBox(width:100.0),
                   TextButton(
@@ -122,11 +137,11 @@ class _SignUpState extends State<Welcome> {
               Center(
                 child: Row( mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    IconButton(onPressed: (){}, icon: Image.asset('asset/images/icons/google-icon.svg'),),
+                    IconButton(onPressed: (){}, icon: SvgPicture.asset('asset/google-icon.svg'),),
                     SizedBox(height: 10.0),
-                    IconButton(onPressed: (){}, icon: Image.asset('asset/images/icons/facebook-2.svg'),),
+                    IconButton(onPressed: (){}, icon: SvgPicture.asset('asset/facebook-2.svg'),),
                     SizedBox(height: 10.0),
-                    IconButton(onPressed: (){}, icon: Image.asset('asset/images/icons/twitter.svg'),),
+                    IconButton(onPressed: (){}, icon: SvgPicture.asset('asset/twitter.svg'),),
                     SizedBox(height: 10.0),
                   ],
                 ),
